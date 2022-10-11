@@ -10,11 +10,11 @@ export class FindEntityDto {
     message:
       'The "limit" query is too large, it must be greater than or equal to 40',
   })
-  public limit?: number;
+  public limit?: number = 20;
 
   @IsOptional()
   @Type(() => Number)
   @IsInt({ message: 'The "skip" query only accepts numeric values' })
   @Min(0, { message: 'The "skip" query only accepts values from 0 or more' })
-  public skip?: number;
+  public skip?: number = 0;
 }

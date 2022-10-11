@@ -1,5 +1,5 @@
-import { MaxLength, IsNotEmpty, IsEnum } from 'class-validator';
-import { ApartmentEntity } from 'src/apartment/entities/apartment.entity';
+import { MaxLength, IsNotEmpty, IsEnum, Validate } from 'class-validator';
+import { ApartmentEntity } from 'src/apartments/entities/apartment.entity';
 
 import { GenderEnum } from '../enums/gender';
 

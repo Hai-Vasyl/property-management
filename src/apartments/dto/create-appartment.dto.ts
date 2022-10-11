@@ -1,10 +1,8 @@
 import { IsNotEmpty, IsInt, Min, Max } from 'class-validator';
-import { Type } from 'class-transformer';
 
-import { HouseEntity } from 'src/house/entities/house.entity';
+import { HouseEntity } from 'src/houses/entities/house.entity';
 
 export class CreateApartmentDto {
-  @Type(() => Number)
   @IsInt({ message: 'The "number" field only accepts numeric values' })
   @Max(150, {
     message:
@@ -16,7 +14,6 @@ export class CreateApartmentDto {
   })
   number: number;
 
-  @Type(() => Number)
   @IsInt({ message: 'The "floor" field only accepts numeric values' })
   @Max(100, {
     message:
