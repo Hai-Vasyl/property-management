@@ -1,8 +1,10 @@
+import { ApiProperty } from '@nestjs/swagger';
 import { IsNotEmpty, IsInt, Min, Max } from 'class-validator';
 
 import { HouseEntity } from '../../houses/entities/house.entity';
 
 export class CreateApartmentDto {
+  @ApiProperty({ type: Number, description: 'number' })
   @IsInt({ message: 'The "number" field only accepts numeric values' })
   @Max(150, {
     message:
@@ -14,6 +16,7 @@ export class CreateApartmentDto {
   })
   number: number;
 
+  @ApiProperty({ type: Number, description: 'floor' })
   @IsInt({ message: 'The "floor" field only accepts numeric values' })
   @Max(100, {
     message:

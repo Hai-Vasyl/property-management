@@ -1,9 +1,11 @@
+import { ApiProperty } from '@nestjs/swagger';
 import { Type } from 'class-transformer';
 import { IsNotEmpty, IsNumber, Validate } from 'class-validator';
 
 import { IsApartmentExists } from '../validation/is-apartment-exists';
 
 export class CreateResidentParamsDto {
+  @ApiProperty({ type: Number, description: 'apartmentId' })
   @Validate(IsApartmentExists)
   @IsNumber(
     { allowNaN: false, allowInfinity: false },

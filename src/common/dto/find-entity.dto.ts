@@ -1,7 +1,9 @@
 import { IsOptional, IsInt, Min, Max } from 'class-validator';
 import { Type } from 'class-transformer';
+import { ApiPropertyOptional } from '@nestjs/swagger';
 
 export class FindEntityDto {
+  @ApiPropertyOptional({ type: Number, description: 'limit' })
   @IsOptional()
   @Type(() => Number)
   @IsInt({ message: 'The "limit" query only accepts numeric values' })
@@ -12,6 +14,7 @@ export class FindEntityDto {
   })
   public limit?: number = 20;
 
+  @ApiPropertyOptional({ type: Number, description: 'skip' })
   @IsOptional()
   @Type(() => Number)
   @IsInt({ message: 'The "skip" query only accepts numeric values' })

@@ -1,3 +1,4 @@
+import { ApiProperty } from '@nestjs/swagger';
 import { Type } from 'class-transformer';
 import { IsNotEmpty, IsNumber } from 'class-validator';
 
@@ -5,6 +6,7 @@ import { IsExists } from '../../common/decorators/is-exists';
 import { HouseEntity } from '../../houses/entities/house.entity';
 
 export class CreateApartmentParamsDto {
+  @ApiProperty({ type: Number, description: 'houseId' })
   @IsExists(HouseEntity, {
     message: 'The house with the specified Id was not found',
   })

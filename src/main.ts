@@ -7,9 +7,6 @@ import { useContainer } from 'class-validator';
 import { AppModule } from './app.module';
 import { HttpExceptionFilter } from './common/filters/http-exception.filter';
 
-// import { AppModule } from './app.module';
-// import { HttpExceptionFilter } from './common/filters/http-exception.filter';
-
 async function bootstrap() {
   const app = await NestFactory.create(AppModule);
   const configService = app.get(ConfigService);
@@ -21,6 +18,7 @@ async function bootstrap() {
 
   const config = new DocumentBuilder()
     .setTitle('Property management')
+    .setDescription('Application for property management')
     .setVersion('1.0')
     .build();
   const document = SwaggerModule.createDocument(app, config);
