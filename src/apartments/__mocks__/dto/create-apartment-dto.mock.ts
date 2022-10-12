@@ -5,8 +5,8 @@ import { CreateApartmentDto } from '../../dto/create-apartment.dto';
 
 const { number } = faker.datatype;
 
-export const createApartmentDto = {
+export const createApartmentDto: CreateApartmentDto = {
   number: number(),
   floor: number(),
   house: houseEntity,
-} as CreateApartmentDto;
+};

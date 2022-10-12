@@ -6,41 +6,18 @@ import { ApartmentController } from './apartment.controller';
 import { ApartmentService } from './apartment.service';
 import { ApartmentRepository } from './repositories/apartment.repository';
 import { HouseRepository } from '../houses/repositories/house.repository';
-import { mockValue } from '../common/helpers/mock-value';
+import { ApartmentEntity } from './entities/apartment.entity';
 
 import { apartmentEntity } from './__mocks__/entities/apartment-entity.mock';
 import { deleteResult, updateResult } from '../common/__mocks__/base.mock';
-import { houseEntity } from '../houses/__mocks__/entities/house.entity.mock';
 import { createApartmentParamsDto } from './__mocks__/dto/create-apartment-params-dto.mock';
 import { createApartmentDto } from './__mocks__/dto/create-apartment-dto.mock';
 import { findEntityDto } from '../common/__mocks__/dto/find-entity-dto.mock';
-import { ApartmentEntity } from './entities/apartment.entity';
 import { updateApartmentDto } from './__mocks__/dto/update-apartment-dto.mock';
+import { ApartmentRepositoryMock } from './__mocks__/repositories/apartment-repository.mock';
+import { HouseRepositoryMock } from '../houses/__mocks__/repositories/house-repository.mock';
 
 const { number } = faker.datatype;
-
-const ApartmentRepositoryMock = {
-  provide: ApartmentRepository,
-  useValue: {
-    create: mockValue(apartmentEntity),
-    findMany: mockValue([apartmentEntity]),
-    findById: mockValue(apartmentEntity),
-    updateById: mockValue(updateResult),
-    deleteById: mockValue(deleteResult),
-  },
-};
-
-const HouseRepositoryMock = {
-  provide: HouseRepository,
-  useValue: {
-    create: mockValue(houseEntity),
-    findMany: mockValue([houseEntity]),
-    findManyByString: mockValue([houseEntity]),
-    findById: mockValue(houseEntity),
-    updateById: mockValue(updateResult),
-    deleteById: mockValue(deleteResult),
-  },
-};
 
 describe('ApartmentController', () => {
   const apartmentId = number();

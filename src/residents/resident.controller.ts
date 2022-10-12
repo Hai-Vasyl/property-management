@@ -18,20 +18,11 @@ import { UpdateResidentDto } from './dto/update-resident.dto';
 import { ResidentEntity } from './entities/resident.entity';
 import { ResidentService } from './resident.service';
 
-// import { ResidentService } from './resident.service';
-// import { CreateResidentDto } from './dto/create-resident.dto';
-// import { UpdateResidentDto } from './dto/update-resident.dto';
-// import { ResidentEntity } from './entities/resident.entity';
-// import { FindEntityDto } from 'src/common/dto/find-entity.dto';
-// import { FindEntityByStringDto } from 'src/common/dto/find-entity-by-string.dto';
-// import { CreateResidentParamsDto } from './dto/create-resident-params.dto';
-
 @Controller('resident')
 export class ResidentController {
   constructor(private readonly residentService: ResidentService) {}
 
   @Post(':apartmentId')
-  // @UseInterceptors(new BodyValidationInterceptor(CreateResidentDto))
   create(
     @Param() { apartmentId }: CreateResidentParamsDto,
     @Body() createResidentDto: CreateResidentDto,
@@ -40,13 +31,11 @@ export class ResidentController {
   }
 
   @Get()
-  // @UseInterceptors(new QueryValidationInterceptor(FindEntityDto))
   find(@Query() findEntityDto: FindEntityDto): Promise<ResidentEntity[]> {
     return this.residentService.find(findEntityDto);
   }
 
   @Get('search')
-  // @UseInterceptors(new QueryValidationInterceptor(FindEntityByStringDto))
   findByString(
     @Query() findEntityByStringDto: FindEntityByStringDto,
   ): Promise<ResidentEntity[]> {
@@ -59,7 +48,6 @@ export class ResidentController {
   }
 
   @Patch(':id')
-  // @UseInterceptors(new BodyValidationInterceptor(UpdateResidentDto))
   update(
     @Param('id') id: number,
     @Body() updateResidentDto: UpdateResidentDto,
