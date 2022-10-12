@@ -5,13 +5,12 @@ import {
   SelectQueryBuilder,
   UpdateResult,
 } from 'typeorm';
-
-import { FindEntityByStringDto } from 'src/common/dto/find-entity-by-string.dto';
-import { FindEntityDto } from 'src/common/dto/find-entity.dto';
-import { CreateResidentDto } from '../dto/create-resident.dto';
-import { UpdateResidentDto } from '../dto/update-resident.dto';
-import { ResidentEntity } from '../entities/resident.entity';
 import { Injectable } from '@nestjs/common';
+import { ResidentEntity } from '../entities/resident.entity';
+import { CreateResidentDto } from '../dto/create-resident.dto';
+import { FindEntityDto } from '../../common/dto/find-entity.dto';
+import { FindEntityByStringDto } from '../../common/dto/find-entity-by-string.dto';
+import { UpdateResidentDto } from '../dto/update-resident.dto';
 
 @Injectable()
 export class ResidentRepository {

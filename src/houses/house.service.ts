@@ -1,8 +1,8 @@
 import { Injectable } from '@nestjs/common';
 import { DeleteResult, UpdateResult } from 'typeorm';
 
-import { FindEntityByStringDto } from 'src/common/dto/find-entity-by-string.dto';
-import { FindEntityDto } from 'src/common/dto/find-entity.dto';
+import { FindEntityByStringDto } from '../common/dto/find-entity-by-string.dto';
+import { FindEntityDto } from '../common/dto/find-entity.dto';
 import { CreateHouseDto } from './dto/create-house.dto';
 import { UpdateHouseDto } from './dto/update-house.dto';
 import { HouseEntity } from './entities/house.entity';

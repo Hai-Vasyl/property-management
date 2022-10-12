@@ -10,20 +10,21 @@ import {
 } from '@nestjs/common';
 import { DeleteResult, UpdateResult } from 'typeorm';
 
-import { FindEntityDto } from 'src/common/dto/find-entity.dto';
+import { FindEntityDto } from '../common/dto/find-entity.dto';
 import { ApartmentService } from './apartment.service';
-import { CreateApartmentDto } from './dto/create-appartment.dto';
-import { UpdateApartmentDto } from './dto/update-appartment.dto';
+import { CreateApartmentParamsDto } from './dto/create-apartment-params.dto';
+import { CreateApartmentDto } from './dto/create-apartment.dto';
+import { UpdateApartmentDto } from './dto/update-apartment.dto';
 import { ApartmentEntity } from './entities/apartment.entity';
 
 @Controller('apartment')
-export class AppartmentController {
+export class ApartmentController {
   constructor(private readonly apartmentService: ApartmentService) {}
 
   @Post(':houseId')
   // @UseInterceptors(new BodyValidationInterceptor(CreateApartmentDto))
   create(
-    @Param('houseId') houseId: number,
+    @Param() { houseId }: CreateApartmentParamsDto,
     @Body() createApartmentDto: CreateApartmentDto,
   ): Promise<ApartmentEntity> {
     return this.apartmentService.create(houseId, createApartmentDto);

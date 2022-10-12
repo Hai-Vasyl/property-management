@@ -10,13 +10,21 @@ import {
 } from '@nestjs/common';
 import { DeleteResult, UpdateResult } from 'typeorm';
 
-import { ResidentService } from './resident.service';
+import { FindEntityByStringDto } from '../common/dto/find-entity-by-string.dto';
+import { FindEntityDto } from '../common/dto/find-entity.dto';
+import { CreateResidentParamsDto } from './dto/create-resident-params.dto';
 import { CreateResidentDto } from './dto/create-resident.dto';
 import { UpdateResidentDto } from './dto/update-resident.dto';
 import { ResidentEntity } from './entities/resident.entity';
-import { FindEntityDto } from 'src/common/dto/find-entity.dto';
-import { FindEntityByStringDto } from 'src/common/dto/find-entity-by-string.dto';
-import { CreateResidentParamsDto } from './dto/create-resident-params.dto';
+import { ResidentService } from './resident.service';
+
+// import { ResidentService } from './resident.service';
+// import { CreateResidentDto } from './dto/create-resident.dto';
+// import { UpdateResidentDto } from './dto/update-resident.dto';
+// import { ResidentEntity } from './entities/resident.entity';
+// import { FindEntityDto } from 'src/common/dto/find-entity.dto';
+// import { FindEntityByStringDto } from 'src/common/dto/find-entity-by-string.dto';
+// import { CreateResidentParamsDto } from './dto/create-resident-params.dto';
 
 @Controller('resident')
 export class ResidentController {
@@ -28,7 +36,6 @@ export class ResidentController {
     @Param() { apartmentId }: CreateResidentParamsDto,
     @Body() createResidentDto: CreateResidentDto,
   ): Promise<ResidentEntity> {
-    console.log({ apartmentId });
     return this.residentService.create(apartmentId, createResidentDto);
   }
 

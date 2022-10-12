@@ -6,7 +6,8 @@ import {
 } from '@nestjs/common';
 import { plainToInstance } from 'class-transformer';
 import { Observable } from 'rxjs';
-import { validateDto } from 'src/common/helpers/validate-dto';
+
+import { validateDto } from '../helpers/validate-dto';
 
 @Injectable()
 export class BodyValidationInterceptor implements NestInterceptor {

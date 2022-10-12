@@ -1,9 +1,9 @@
 import { Injectable } from '@nestjs/common';
 import { DeleteResult, UpdateResult } from 'typeorm';
 
-import { ApartmentRepository } from 'src/apartments/repositories/apartment.repository';
-import { FindEntityByStringDto } from 'src/common/dto/find-entity-by-string.dto';
-import { FindEntityDto } from 'src/common/dto/find-entity.dto';
+import { ApartmentRepository } from '../apartments/repositories/apartment.repository';
+import { FindEntityByStringDto } from '../common/dto/find-entity-by-string.dto';
+import { FindEntityDto } from '../common/dto/find-entity.dto';
 import { CreateResidentDto } from './dto/create-resident.dto';
 import { UpdateResidentDto } from './dto/update-resident.dto';
 import { ResidentEntity } from './entities/resident.entity';

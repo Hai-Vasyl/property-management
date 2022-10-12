@@ -1,12 +1,12 @@
 import { Injectable } from '@nestjs/common';
 import { DeleteResult, UpdateResult } from 'typeorm';
 
-import { FindEntityDto } from 'src/common/dto/find-entity.dto';
-import { CreateApartmentDto } from './dto/create-appartment.dto';
-import { UpdateApartmentDto } from './dto/update-appartment.dto';
+import { FindEntityDto } from '../common/dto/find-entity.dto';
+import { HouseRepository } from '../houses/repositories/house.repository';
+import { CreateApartmentDto } from './dto/create-apartment.dto';
+import { UpdateApartmentDto } from './dto/update-apartment.dto';
 import { ApartmentEntity } from './entities/apartment.entity';
 import { ApartmentRepository } from './repositories/apartment.repository';
-import { HouseRepository } from 'src/houses/repositories/house.repository';
 
 @Injectable()
 export class ApartmentService {
@@ -19,9 +19,7 @@ export class ApartmentService {
     houseId: number,
     createApartmentDto: CreateApartmentDto,
   ): Promise<ApartmentEntity> {
-    createApartmentDto.house = await this.houseRepository.findByIdOrFail(
-      houseId,
-    );
+    createApartmentDto.house = await this.houseRepository.findById(houseId);
 
     return this.apartmentRepository.create(createApartmentDto);
   }

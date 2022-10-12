@@ -5,7 +5,7 @@ import {
   ValidatorConstraintInterface,
 } from 'class-validator';
 
-import { ApartmentRepository } from 'src/apartments/repositories/apartment.repository';
+import { ApartmentRepository } from '../../apartments/repositories/apartment.repository';
 
 @Injectable()
 @ValidatorConstraint({ name: 'isApartmentExists', async: true })

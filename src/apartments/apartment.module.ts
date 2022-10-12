@@ -2,15 +2,15 @@ import { Module } from '@nestjs/common';
 import { TypeOrmModule } from '@nestjs/typeorm';
 
 import { ApartmentService } from './apartment.service';
-import { AppartmentController } from './apartment.controller';
-import { HouseEntity } from 'src/houses/entities/house.entity';
+import { ApartmentController } from './apartment.controller';
 import { ApartmentEntity } from './entities/apartment.entity';
 import { ApartmentRepository } from './repositories/apartment.repository';
-import { HouseRepository } from 'src/houses/repositories/house.repository';
+import { HouseEntity } from '../houses/entities/house.entity';
+import { HouseRepository } from '../houses/repositories/house.repository';
 
 @Module({
   imports: [TypeOrmModule.forFeature([ApartmentEntity, HouseEntity])],
-  controllers: [AppartmentController],
+  controllers: [ApartmentController],
   providers: [ApartmentService, ApartmentRepository, HouseRepository],
 })
 export class AppartmentModule {}

@@ -1,12 +1,11 @@
 import { Module } from '@nestjs/common';
 import { TypeOrmModule } from '@nestjs/typeorm';
-
-import { ResidentService } from './resident.service';
-import { ResidentController } from './resident.controller';
+import { ApartmentEntity } from '../apartments/entities/apartment.entity';
+import { ApartmentRepository } from '../apartments/repositories/apartment.repository';
 import { ResidentEntity } from './entities/resident.entity';
-import { ApartmentEntity } from 'src/apartments/entities/apartment.entity';
-import { ApartmentRepository } from 'src/apartments/repositories/apartment.repository';
 import { ResidentRepository } from './repositories/resident.repository';
+import { ResidentController } from './resident.controller';
+import { ResidentService } from './resident.service';
 import { IsApartmentExists } from './validation/is-apartment-exists';
 
 @Module({

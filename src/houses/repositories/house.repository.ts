@@ -1,4 +1,4 @@
-import { Injectable, UnprocessableEntityException } from '@nestjs/common';
+import { Injectable } from '@nestjs/common';
 import { InjectRepository } from '@nestjs/typeorm';
 import {
   DeleteResult,
@@ -6,9 +6,9 @@ import {
   SelectQueryBuilder,
   UpdateResult,
 } from 'typeorm';
+import { FindEntityByStringDto } from '../../common/dto/find-entity-by-string.dto';
+import { FindEntityDto } from '../../common/dto/find-entity.dto';
 
-import { FindEntityByStringDto } from 'src/common/dto/find-entity-by-string.dto';
-import { FindEntityDto } from 'src/common/dto/find-entity.dto';
 import { CreateHouseDto } from '../dto/create-house.dto';
 import { UpdateHouseDto } from '../dto/update-house.dto';
 import { HouseEntity } from '../entities/house.entity';
@@ -25,18 +25,6 @@ export class HouseRepository {
     skip,
   }: FindEntityDto): SelectQueryBuilder<HouseEntity> {
     return this.repository.createQueryBuilder('house').take(limit).skip(skip);
-  }
-
-  public async findByIdOrFail(id: number): Promise<HouseEntity> {
-    const house = await this.findById(id);
-
-    if (!house) {
-      throw new UnprocessableEntityException({
-        message: 'The house with the specified Id was not found',
-      });
-    }
-
-    return house;
   }
 
   public async create(createHouseDto: CreateHouseDto): Promise<HouseEntity> {

@@ -1,7 +1,7 @@
 import { Column, Entity, JoinColumn, OneToOne } from 'typeorm';
 
-import { BaseEntity } from 'src/common/entities/base.entity';
-import { ApartmentEntity } from 'src/apartments/entities/apartment.entity';
+import { ApartmentEntity } from '../../apartments/entities/apartment.entity';
+import { BaseEntity } from '../../common/entities/base.entity';
 import { GenderEnum } from '../enums/gender';
 
 @Entity({ name: 'resident' })

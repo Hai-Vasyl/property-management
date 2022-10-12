@@ -1,9 +1,9 @@
 import { registerAs } from '@nestjs/config';
 import { PostgresConnectionOptions } from 'typeorm/driver/postgres/PostgresConnectionOptions';
 
-import { ApartmentEntity } from 'src/apartments/entities/apartment.entity';
-import { HouseEntity } from 'src/houses/entities/house.entity';
-import { ResidentEntity } from 'src/residents/entities/resident.entity';
+import { ApartmentEntity } from '../apartments/entities/apartment.entity';
+import { HouseEntity } from '../houses/entities/house.entity';
+import { ResidentEntity } from '../residents/entities/resident.entity';
 
 export const dbConfig = registerAs(
   'database',

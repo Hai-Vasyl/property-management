@@ -14,8 +14,8 @@ import { HouseService } from './house.service';
 import { CreateHouseDto } from './dto/create-house.dto';
 import { UpdateHouseDto } from './dto/update-house.dto';
 import { HouseEntity } from './entities/house.entity';
-import { FindEntityDto } from 'src/common/dto/find-entity.dto';
-import { FindEntityByStringDto } from 'src/common/dto/find-entity-by-string.dto';
+import { FindEntityDto } from '../common/dto/find-entity.dto';
+import { FindEntityByStringDto } from '../common/dto/find-entity-by-string.dto';
 
 @Controller('house')
 export class HouseController {

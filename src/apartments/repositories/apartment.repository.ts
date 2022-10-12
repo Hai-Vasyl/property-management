@@ -1,5 +1,5 @@
 import { InjectRepository } from '@nestjs/typeorm';
-import { Injectable, UnprocessableEntityException } from '@nestjs/common';
+import { Injectable } from '@nestjs/common';
 import {
   DeleteResult,
   Repository,
@@ -7,10 +7,10 @@ import {
   UpdateResult,
 } from 'typeorm';
 
-import { FindEntityDto } from 'src/common/dto/find-entity.dto';
-import { CreateApartmentDto } from '../dto/create-appartment.dto';
-import { UpdateApartmentDto } from '../dto/update-appartment.dto';
+import { CreateApartmentDto } from '../dto/create-apartment.dto';
+import { UpdateApartmentDto } from '../dto/update-apartment.dto';
 import { ApartmentEntity } from '../entities/apartment.entity';
+import { FindEntityDto } from '../../common/dto/find-entity.dto';
 
 @Injectable()
 export class ApartmentRepository {
@@ -28,20 +28,6 @@ export class ApartmentRepository {
       .take(limit)
       .skip(skip);
   }
-
-  // public async findByIdOrFail(id: number): Promise<ApartmentEntity> {
-  //   const apartment = await this.repository.findOne({
-  //     where: { id },
-  //   });
-
-  //   if (!apartment) {
-  //     throw new UnprocessableEntityException({
-  //       message: 'The apartment with the specified Id was not found',
-  //     });
-  //   }
-
-  //   return apartment;
-  // }
 
   public async create(
     createApartmentDto: CreateApartmentDto,

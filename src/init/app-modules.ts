@@ -1,8 +1,8 @@
 import { ConfigModule, ConfigService } from '@nestjs/config';
 import { TypeOrmModule } from '@nestjs/typeorm';
 
-import { baseConfig } from 'src/config/base';
-import { dbConfig } from 'src/config/database';
+import { baseConfig } from '../config/base';
+import { dbConfig } from '../config/database';
 
 export const initAppModules = [
   ConfigModule.forRoot({
